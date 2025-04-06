@@ -2,8 +2,7 @@
 import PeopleIcon from '@mui/icons-material/People';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 
-const productos = {   
-    
+const productos = {      
     
       
     segment: 'productos',

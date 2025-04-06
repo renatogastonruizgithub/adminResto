@@ -86,18 +86,7 @@ export default function UpdateProducts() {
 
   };
 
-  const handleDelete = async (id) => {
-    await deleteProduct(id)
-    toast.success("Se elimino con éxito", {
-      position: "top-right",
-      onClose: () => {
-        console.log("Toast cerrado, navegando..."); // Debugging
-        navigate(`/productos`);
-      }
-    });
-
-
-  }
+ 
 
   const handleCategory = async (selectedId) => {
 
@@ -182,11 +171,9 @@ export default function UpdateProducts() {
                       {
                         id ? (<>
                           <Button variant="contained" type="submit" disabled={isSubmitting}>
-                            Actualizar
+                            Aplicar cambios
                           </Button>
-                          <Button variant="outlined" onClick={() => handleDelete(id)}>
-                            Eliminar
-                          </Button></>
+                          </>
                         ) : (<Button variant="contained" type="submit" disabled={isSubmitting} >
                           Crear
                         </Button>)

@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { Outlet } from 'react-router-dom';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
-import { Stack ,Typography,Chip,Tooltip, IconButton,TextField} from '@mui/material';
+import { Stack, Typography, Chip, Tooltip, IconButton, TextField } from '@mui/material';
 import PropTypes from 'prop-types';
 import SearchIcon from '@mui/icons-material/Search';
 import CreditScoreIcon from '@mui/icons-material/CreditScore';
+import { SocketProvider } from '../context/SocketContext';
 
 
 function ToolbarActionsSearch() {
@@ -39,7 +40,7 @@ function ToolbarActionsSearch() {
         }}
         sx={{ display: { xs: 'none', md: 'inline-block' }, mr: 1 }}
       />
-   
+
     </Stack>
   );
 }
@@ -62,19 +63,21 @@ SidebarFooter.propTypes = {
 
 export default function Layout() {
   return (
-    <DashboardLayout 
-    
-    slots={{
-   /*    appTitle: CustomAppTitle, */
-       toolbarActions: ToolbarActionsSearch,
-      sidebarFooter: SidebarFooter, 
-    }}>
-      <div style={{marginTop:"4rem",marginBottom:"3rem"}}> 
+    <SocketProvider>
+      <DashboardLayout
 
-      <Outlet />
-      </div>
+        slots={{
+          /*    appTitle: CustomAppTitle, */
+          toolbarActions: ToolbarActionsSearch,
+          sidebarFooter: SidebarFooter,
+        }}>
+        <div style={{ marginTop: "4rem", marginBottom: "3rem" }}>
 
-      
-    </DashboardLayout>
+          <Outlet />
+        </div>
+
+
+      </DashboardLayout>
+    </SocketProvider>
   );
 }
